@@ -23,7 +23,7 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 SECRET_KEY = 'nde0uy^t!ln7)x0(_tz+dfhlb_1sdc1c9%q$@8swnzx(3f*+i7'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = False
 
 ALLOWED_HOSTS = []
 
@@ -53,12 +53,11 @@ ROOT_URLCONF = 'prokanji.urls'
 
 TEMPLATES = [
     {
-        'BACKEND': 'django.template.backends.jinja2.Jinja2'
-        ,
-        'DIRS': [os.path.join(BASE_DIR, 'templates')]
-        ,
+        'BACKEND': 'django.template.backends.jinja2.Jinja2',
+        'DIRS': [os.path.join(BASE_DIR, 'templates')],
         'APP_DIRS': True,
         'OPTIONS': {
+            'environment': 'prokanji.jinja2.environment',
             'context_processors': [
                 'django.template.context_processors.debug',
                 'django.template.context_processors.request',
